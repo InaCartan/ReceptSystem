@@ -12,30 +12,33 @@ namespace DataAccess.Mapper
     {
         public static DTORecept MapToDto(Recept recept)
         {
-            DTORecept dtoRecept = new DTORecept();
-
-            dtoRecept.ReceptId = recept.ReceptId;
-            dtoRecept.CprNummer = recept.CprNummer;
-            dtoRecept.YderNummer = recept.YderNummer;
-            dtoRecept.Ordinationer = MapListToDto(recept.Ordinationer);
-            return dtoRecept;
+           
+            return new DTORecept(
+                OrdinationMapper.MapListToDto(recept.Ordinationer), 
+                recept.ReceptId, 
+                recept.YderNummer, 
+                recept.CprNummer
+            ); 
         }
 
-        public static List<DTOOrdination> MapListToDto(List<Ordination> ordinationListe)
+
+        public static Recept MapFromDto(DTORecept recept)
         {
-            List<DTOOrdination> dtoOrdinationer = new List<DTOOrdination>();
-            foreach (Ordination ordination in ordinationListe)
-            {
-                dtoOrdinationer.Add(OrdinationMapper.MapToDto(ordination));
-            }
-            return dtoOrdinationer;
+
+            return new Recept(
+                OrdinationMapper.MapListFromDto(recept.Ordinationer), 
+                recept.ReceptId, 
+                recept.YderNummer, 
+                recept.CprNummer
+                );
         }
 
+        // TODO: Tilføj til Repository, hvis nødvendigt
         public static void Update(DTORecept receptDto, Recept recept)
         {
             receptDto.CprNummer = recept.CprNummer;
             receptDto.YderNummer = recept.YderNummer;
-            receptDto.Ordinationer = MapListToDto(recept.Ordinationer);
+            receptDto.Ordinationer = OrdinationMapper.MapListToDto(recept.Ordinationer);
         }
     }
 }
