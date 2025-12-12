@@ -1,0 +1,179 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ReceptSystemAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Apotek/{cprNr}": {
+      "get": {
+        "tags": [
+          "Apotek"
+        ],
+        "parameters": [
+          {
+            "name": "cprNr",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DTORecept"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DTORecept"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DTORecept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Laegehus/{cprNr}": {
+      "get": {
+        "tags": [
+          "Laegehus"
+        ],
+        "parameters": [
+          {
+            "name": "cprNr",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DTORecept"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DTORecept"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DTORecept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Laegehus": {
+      "post": {
+        "tags": [
+          "Laegehus"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTORecept"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTORecept"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DTORecept"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DTOOrdination": {
+        "type": "object",
+        "properties": {
+          "ordinationId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "receptId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "beskrivelse": {
+            "type": "string",
+            "nullable": true
+          },
+          "dosis": {
+            "type": "string",
+            "nullable": true
+          },
+          "antalUdlv": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "antalForetagneUdlv": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DTORecept": {
+        "type": "object",
+        "properties": {
+          "ordinationer": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DTOOrdination"
+            },
+            "nullable": true
+          },
+          "receptId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "yderNummer": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cprNummer": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

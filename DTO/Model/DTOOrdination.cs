@@ -8,10 +8,11 @@ namespace DTO.Model
 {
     public class DTOOrdination
     {
-        public DTOOrdination(int ordinationId, string beskrivelse, string dosis, 
+        public DTOOrdination(int ordinationId, int receptId, string beskrivelse, string dosis, 
                              int antalUdlv, int antalForetagneUdlv)
         {
             OrdinationId = ordinationId;
+            ReceptId = receptId;
             Beskrivelse = beskrivelse;
             Dosis = dosis;
             AntalUdlv = antalUdlv;
@@ -19,6 +20,8 @@ namespace DTO.Model
         }
 
         public int OrdinationId { get; set; }
+
+        public int ReceptId { get; set; }
         public string Beskrivelse { get; set; } // beskriver lægemiddel
         public string Dosis { get; set; }
         public int AntalUdlv { get; set; } // antal udleveringer

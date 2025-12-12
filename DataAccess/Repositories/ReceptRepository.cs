@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    internal class ReceptRepository
+    public class ReceptRepository
     {
-        public static DTORecept getRecept(int id)
+        public static DTORecept getRecept(int cpr)
         {
             using (Database db = new Database())
             {
-                Recept rcpt = db.Recept.Where(r => r.ReceptId == id).First();
+                Recept rcpt = db.Recept.Where(r => r.CprNummer == cpr).FirstOrDefault();
                 if (rcpt == null)
                 {
                     throw new ArgumentOutOfRangeException();
@@ -26,6 +26,19 @@ namespace DataAccess.Repositories
             }
         }
 
+
+        public static List<DTORecept> GetAllRecept()
+        {
+            List<DTORecept> recepter = new List<DTORecept>();
+            using (Database db = new Database())
+            {
+                foreach (Recept r in db.Recept)
+                {
+                    recepter.Add(ReceptMapper.MapToDto(r));
+                }
+            }
+            return recepter;
+        }
         
         public static void AddRecept(DTORecept dtoRecept)
         {
@@ -33,6 +46,19 @@ namespace DataAccess.Repositories
             {
                 Recept rcpt = ReceptMapper.MapFromDto(dtoRecept);
                 db.Recept.Add(rcpt);
+                db.SaveChanges();
+            }
+        }
+
+        public static void AddOrdinationToRecept(int ordinationId, int receptId)
+        {
+            using (Database db = new Database()){
+                Recept rcpt = db.Recept.Where(r => r.ReceptId == receptId).Include(r => r.Ordinationer).FirstOrDefault();
+                if (rcpt != null)
+                {
+                    Ordination ordtn = db.Ordination.Where(o => o.OrdinationId == ordinationId).FirstOrDefault();
+                    rcpt.Ordinationer.Add(ordtn);
+                }
                 db.SaveChanges();
             }
         }

@@ -8,6 +8,8 @@ namespace DataAccess.Model
 {
     internal class Apotek
     {
+
+        public Apotek() {}
         public Apotek(int apotekId, string navn, string telefon, string adresse)
         {
             ApotekId = apotekId;

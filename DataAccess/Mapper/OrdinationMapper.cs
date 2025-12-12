@@ -15,6 +15,7 @@ namespace DataAccess.Mapper
             return new DTOOrdination
             (
                 ordination.OrdinationId,
+                ordination.ReceptId,
                 ordination.Beskrivelse,
                 ordination.Dosis,
                 ordination.AntalUdlv,
@@ -38,6 +39,7 @@ namespace DataAccess.Mapper
             return new Ordination
             (
                 ordination.OrdinationId,
+                ordination.ReceptId,
                 ordination.Beskrivelse,
                 ordination.Dosis,
                 ordination.AntalUdlv,

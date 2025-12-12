@@ -1,10 +1,13 @@
-﻿using System;
+﻿using DataAccess.Model;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using DataAccess.Model;
+
+[assembly: InternalsVisibleTo("ConsoleApp")]
 
 namespace DataAccess.Context
 {
@@ -17,7 +20,7 @@ namespace DataAccess.Context
 
         public Database()
         {
-            bool dbExist = Database.EnsureCreated();
+            bool dbExist = this.Database.EnsureCreated();
             if (dbExist)
             {
                 Console.WriteLine("Database Exist");
@@ -26,7 +29,9 @@ namespace DataAccess.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-BNJU8IC;Initial Catalog=Student;Trusted_Connection=True;Integrated Security=SSPI; TrustServerCertificate=true");
+            if (!optionsBuilder.IsConfigured) { 
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-BNJU8IC;Initial Catalog=Recept;Trusted_Connection=True;Integrated Security=SSPI; TrustServerCertificate=true");
+            }
         }
 
 

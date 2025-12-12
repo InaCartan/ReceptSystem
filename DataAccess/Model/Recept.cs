@@ -10,6 +10,8 @@ namespace DataAccess.Model
     {
         private List<Ordination> ordinationer;
 
+
+        public Recept() { }
         public Recept(List<Ordination> ordinationer, int receptId, int yderNummer, int cprNummer)
         {
             this.ordinationer = ordinationer;

@@ -33,7 +33,7 @@ namespace DataAccess.Mapper
                 );
         }
 
-        // TODO: Tilføj til Repository, hvis nødvendigt
+        
         public static void Update(DTORecept receptDto, Recept recept)
         {
             receptDto.CprNummer = recept.CprNummer;

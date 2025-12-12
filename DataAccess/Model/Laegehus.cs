@@ -10,6 +10,8 @@ namespace DataAccess.Model
     {
         private List<Recept> recepter;
 
+        public Laegehus(){}
+
         public Laegehus(List<Recept> recepter, int laegehusId, int yderNummer, 
                         string navn, string telefon, string adresse)
         {

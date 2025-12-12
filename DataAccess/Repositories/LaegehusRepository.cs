@@ -13,30 +13,16 @@ namespace DataAccess.Repositories
 {
     public class LaegehusRepository
     {
-        public static DTOLaegehus GetLaegehus(int id)
+        // In Shaa Allah. Metoden tilføjer en allerede eksisterende Recept (recept oprettes i Recept Repository)
+        public static void AddReceptToLaegehus(int receptcpr, int laegehusYdernr)
         {
             using (Database db = new Database())
             {
-                Laegehus lgh = db.Laegehuse.Where(l => l.LaegehusId == id).First(); // In Shaa Allah, return first elemement of sequence
-                
-                if (lgh == null)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-                return LaegehusMapper.MapToDto(lgh);
-            }
-        }
-
-        // Tilføj en allerede eksisterende Recept (recept oprettes i Recept Repository)
-        public static void AddReceptToLaegehus(int receptId, int laegehusId)
-        {
-            using (Database db = new Database())
-            {
-                Laegehus lgh = db.Laegehuse.Where(l => l.LaegehusId == laegehusId).Include(l => l.Recepter).FirstOrDefault();
+                Laegehus lgh = db.Laegehuse.Where(l => l.YderNummer == laegehusYdernr).Include(l => l.Recepter).FirstOrDefault();
 
                 if (lgh != null)
                 {
-                    Recept rcpt = db.Recept.Where(r => r.ReceptId == receptId).FirstOrDefault();
+                    Recept rcpt = db.Recept.Where(r => r.CprNummer == receptcpr).FirstOrDefault();
                     lgh.Recepter.Add(rcpt);
                 }
                 db.SaveChanges();
