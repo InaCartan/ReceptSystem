@@ -9,7 +9,6 @@ namespace ReceptSystemAPI.Controllers
     [ApiController]
     public class ApotekController : ControllerBase
     {
-        //[Route("getRecept")]
         [HttpGet("{cprNr}")]
         public DTORecept getRecept(int cprNr)
         {

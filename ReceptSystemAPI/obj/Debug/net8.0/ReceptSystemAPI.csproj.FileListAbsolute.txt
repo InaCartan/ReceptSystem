@@ -78,7 +78,6 @@ C:\Users\moham\Datamatiker\4 Semester\C#&.NET\Eksamen\ReceptSystemOpg\ReceptSyst
 C:\Users\moham\Datamatiker\4 Semester\C#&.NET\Eksamen\ReceptSystemOpg\ReceptSystemAPI\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\moham\Datamatiker\4 Semester\C#&.NET\Eksamen\ReceptSystemOpg\ReceptSystemAPI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\moham\Datamatiker\4 Semester\C#&.NET\Eksamen\ReceptSystemOpg\ReceptSystemAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\moham\Datamatiker\4 Semester\C#&.NET\Eksamen\ReceptSystemOpg\ReceptSystemAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\moham\Datamatiker\4 Semester\C#&.NET\Eksamen\ReceptSystemOpg\ReceptSystemAPI\obj\Debug\net8.0\ReceptSy.0752D1AC.Up2Date
 C:\Users\moham\Datamatiker\4 Semester\C#&.NET\Eksamen\ReceptSystemOpg\ReceptSystemAPI\obj\Debug\net8.0\ReceptSystemAPI.dll
 C:\Users\moham\Datamatiker\4 Semester\C#&.NET\Eksamen\ReceptSystemOpg\ReceptSystemAPI\obj\Debug\net8.0\refint\ReceptSystemAPI.dll

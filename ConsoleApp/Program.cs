@@ -13,6 +13,7 @@ namespace DataAccess.HuskAtSLette
             try
             {
                 using var db = new Database();
+                Console.WriteLine("Database is running");
             }
             catch (Exception ex)
             {

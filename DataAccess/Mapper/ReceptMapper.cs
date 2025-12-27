@@ -12,7 +12,7 @@ namespace DataAccess.Mapper
     {
         public static DTORecept MapToDto(Recept recept)
         {
-           
+
             return new DTORecept(
                 OrdinationMapper.MapListToDto(recept.Ordinationer), 
                 recept.ReceptId, 

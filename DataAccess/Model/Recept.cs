@@ -20,7 +20,7 @@ namespace DataAccess.Model
             CprNummer = cprNummer;
         }
 
-        public List<Ordination> Ordinationer { get; set; }
+        public List<Ordination> Ordinationer { get; set; } = new List<Ordination>();
         public int ReceptId { get; set; }
         public int YderNummer { get; set; }
         public int CprNummer { get; set; }

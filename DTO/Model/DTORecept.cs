@@ -18,7 +18,7 @@ namespace DTO.Model
             CprNummer = cprNummer;
         }
 
-        public List<DTOOrdination> Ordinationer { get; set; }
+        public List<DTOOrdination> Ordinationer { get; set; } = new List<DTOOrdination>();
         public int ReceptId { get; set; }
         public int YderNummer { get; set; }
         public int CprNummer { get; set; }
